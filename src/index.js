@@ -1,35 +1,36 @@
 import './style.css';
-import Task from './modules/tasks.js';
-import displayTask from './modules/displayTask.js';
 
-const newTask = new Task();
-const inputTask = document.querySelector('.input-task');
+const tasks = [
+  {
+    description: 'Wake up',
+    completed: true,
+    index: 0,
+  },
+  {
+    description: 'Pray',
+    completed: true,
+    index: 1,
+  },
+  {
+    description: 'Eat breakfast',
+    completed: false,
+    index: 2,
+  },
+];
 
-export default function updateUi(id) {
-  const localData = JSON.parse(localStorage.getItem('tasks'));
-  if (localData !== null) {
-    localData.forEach((data) => {
-      if (data.index === Number(id)) {
-        const newarr = localData.indexOf(data);
-        localData.splice(newarr, 1);
-      }
-    });
+const taskWrapper = document.querySelector('.to-dos');
+
+const showList = () => {
+  taskWrapper.innerHTML = '';
+  for (let i = 0; i < tasks.length; i += 1) {
+    taskWrapper.innerHTML += `
+    <ul id="form">
+      <input type="checkbox" id="${tasks[i].index}" name="task" value="task">
+      <li for="${tasks[i].index}">${tasks[i].description}</li>
+      <i class="fa fa fa-times"></i><br>
+    </ul>
+    `;
   }
-  newTask.tasks = localData;
-  localStorage.setItem('tasks', JSON.stringify(localData));
-}
+};
 
-inputTask.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') {
-    const inputValue = inputTask.value.trim();
-    if (inputValue !== '') {
-      newTask.addNewTask(inputValue);
-      inputTask.value = '';
-      inputTask.focus();
-    }
-    displayTask();
-    window.location.reload();
-  }
-});
-// instantiate modules
-displayTask();
+window.addEventListener('load', showList);
