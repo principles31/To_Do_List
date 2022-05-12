@@ -1,9 +1,9 @@
 function displayTask() {
-    const todoList = document.querySelector('.todo-list');
-    const localData = JSON.parse(localStorage.getItem('tasks'));
-    if (localData !== null) {
-      localData.forEach((task) => {
-        todoList.innerHTML += `
+  const todoList = document.querySelector(".todo-list");
+  const localData = JSON.parse(localStorage.getItem("tasks"));
+  if (localData !== null) {
+    localData.forEach((task) => {
+      todoList.innerHTML += `
               <div class="edit-task" data-key="${task.index}"> 
               <ul class="ul-edit" >
                   <li class="tick" ><input id="${task.index}" type="checkbox"></li>
@@ -13,8 +13,8 @@ function displayTask() {
               <hr>
               </div>
               `;
-      });
-    }
+    });
   }
-  
-  export default displayTask;
+}
+
+export default displayTask;
