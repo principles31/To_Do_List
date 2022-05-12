@@ -1,6 +1,6 @@
 function displayTask() {
-  const todoList = document.querySelector(".todo-list");
-  const localData = JSON.parse(localStorage.getItem("tasks"));
+  const todoList = document.querySelector('.todo-list');
+  const localData = JSON.parse(localStorage.getItem('tasks'));
   if (localData !== null) {
     localData.forEach((task) => {
       todoList.innerHTML += `

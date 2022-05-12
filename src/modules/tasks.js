@@ -1,6 +1,6 @@
 class Task {
   constructor() {
-    this.tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    this.tasks = JSON.parse(localStorage.getItem('tasks')) || [];
   }
 
   addNewTask(text) {
@@ -10,7 +10,7 @@ class Task {
       index: this.tasks.length + 1,
     };
     this.tasks.push(task);
-    localStorage.setItem("tasks", JSON.stringify(this.tasks));
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 }
 
