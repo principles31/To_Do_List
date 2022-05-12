@@ -1,6 +1,15 @@
-import './style.css';
-import Task from './modules/tasks.js';
-import displayTask from './modules/displayTask.js';
+const tasks = [
+  {
+     description: 'First task',
+     completed: false,
+     index: 1,
+  },
+  {
+     description: 'Second task',
+     completed: true,
+     index: 2,
+  },
+];
 
 const newTask = new Task();
 const inputTask = document.querySelector('.input-task');

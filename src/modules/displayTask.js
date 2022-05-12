@@ -1,8 +1,7 @@
-function displayTask() {
-  const todoList = document.querySelector('.todo-list');
-  const localData = JSON.parse(localStorage.getItem('tasks'));
-  if (localData !== null) {
-    localData.forEach((task) => {
+function displayTask(tasksArray) {
+  const todoList = document.querySelector('.todo-list')
+  if (tasksArray !== null) {
+    tasksArray.forEach((task) => {
       todoList.innerHTML += `
               <div class="edit-task" data-key="${task.index}"> 
               <ul class="ul-edit" >
