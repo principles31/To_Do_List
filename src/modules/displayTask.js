@@ -1,5 +1,5 @@
 function displayTask(tasksArray) {
-  const todoList = document.querySelector('.todo-list')
+  const todoList = document.querySelector('.todo-list');
   if (tasksArray !== null) {
     tasksArray.forEach((task) => {
       todoList.innerHTML += `
